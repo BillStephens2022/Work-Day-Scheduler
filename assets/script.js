@@ -2,6 +2,12 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
+var timeBlockElements = document.querySelectorAll(".time-block");
+var saveButtons = document.getElementsByClassName("saveBtn");
+var hourlyEvents = [];
+var hourlyEvent;
+var currentDay = dayjs().format('MMMM DD, YYYY');
+var hour = dayjs().format('H');
 
 $(function () {
     // TODO: Add a listener for click events on the save button. This code should
@@ -10,13 +16,12 @@ $(function () {
     // function? How can DOM traversal be used to get the "hour-x" id of the
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
+    //Add function here
+    $('#currentDay').text(currentDay);
     
-  
-  
-    saveButtons = document.getElementsByClassName("saveBtn");
     for (var i = 0; i < saveButtons.length; i++) {
         saveButtons[i].addEventListener("click", function () {
-      //Add function here
+      
           var idClicked = this.parentNode.id;
           var parentClicked = this.parentNode;
           console.log(idClicked);
@@ -25,19 +30,43 @@ $(function () {
           eventItem = (textArea.val());
           console.log(eventItem);
           localStorage.setItem(idClicked.slice(5), eventItem);
-          
-          
-        
-          
         });
     };
-  
-      
-  
+
+    for (var i = 0; i < timeBlockElements.length; i++) {
+        
+        if ((i + 9) < hour) {
+            timeBlockElements[i].classList.add('past');
+        } else if ((i + 9) === hour) {
+            timeBlockElements[i].classList.add('present');
+        } else {
+            timeBlockElements[i].classList.add('future');
+        };
+    };
    });
-  
-    
-  
+
+   for (var i = 0; i < timeBlockElements.length; i++) {
+        if (i < 4) {
+            var x = i + 9; 
+            hourlyEvent = localStorage.getItem(x);
+            hourlyEvents.push(hourlyEvent);
+    } else {
+        var x = i - 3;
+        hourlyEvent = localStorage.getItem(x);
+        hourlyEvents.push(hourlyEvent);
+    }; 
+   };
+
+
+   for (var i = 0; i < timeBlockElements.length; i++) {
+    if (i < 4) {
+        var y = i + 9;
+        $("div#hour-"+ y).children('textarea').text(localStorage.getItem(y));
+    } else {
+        var y = i - 3;
+        $("div#hour-"+ y).children('textarea').text(localStorage.getItem(y));
+    };
+   };
   
     //
     // TODO: Add code to apply the past, present, or future class to each time
