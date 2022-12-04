@@ -7,6 +7,9 @@ This website is a Work Day Scheduler.  The User is presented with a daily planne
 Screenshot:
 
 
+![Screen Shot 2022-12-04 at 10 55 26 AM](https://user-images.githubusercontent.com/113722447/205513071-1aee3ca6-3a14-4cd9-af98-224fe9cac198.png)
+
+
 
 ## Installation
 
