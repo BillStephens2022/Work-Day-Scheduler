@@ -2,12 +2,14 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
+// Declare global variables
+
 var timeBlockElements = document.querySelectorAll(".time-block");
 var saveButtons = document.getElementsByClassName("saveBtn");
 var hourlyEvents = [];
 var hourlyEvent;
 var currentDay = dayjs().format('MMMM DD, YYYY');
-var hour = dayjs().format('H');
+var hour = parseInt(dayjs().format('H'));
 
 $(function () {
     // TODO: Add a listener for click events on the save button. This code should
@@ -34,7 +36,6 @@ $(function () {
     };
 
     for (var i = 0; i < timeBlockElements.length; i++) {
-        
         if ((i + 9) < hour) {
             timeBlockElements[i].classList.add('past');
         } else if ((i + 9) === hour) {
