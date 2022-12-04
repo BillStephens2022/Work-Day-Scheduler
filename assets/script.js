@@ -4,8 +4,11 @@
 
 // Declare global variables
 
-var timeBlockElements = document.querySelectorAll(".time-block");
-var saveButtons = document.getElementsByClassName("saveBtn");
+
+// save all elements with class name "time-block" into an array
+var timeBlockElements = $(".time-block"); 
+
+var saveButtons = $(".saveBtn");
 var hourlyEvents = [];
 var hourlyEvent;
 var currentDay = dayjs().format('MMMM DD, YYYY');
