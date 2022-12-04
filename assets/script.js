@@ -17,9 +17,9 @@ $(function () {
     // displays current date in header
     $('#currentDay').text(currentDay);
     
-    /* for loop to iterate through array of save buttons to add an event listener.
-    Saves any item entered into a time block (time blocks are parent elements 
-    to the button) into local storage based on id of the time block.  */
+    /* for loop iterates through the array of save buttons to add an event listener.
+    A mouse click on a save button witll trigger a function to save any item entered into
+    the text area of the time block into local storage based on id of the time block.  */
 
     for (var i = 0; i < saveButtons.length; i++) {
         saveButtons[i].addEventListener("click", function () {
@@ -58,6 +58,4 @@ $(function () {
     };
    };
 });
-  
-
     
