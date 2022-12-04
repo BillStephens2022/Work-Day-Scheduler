@@ -44,22 +44,6 @@ $(function () {
             timeBlockElements[i].classList.add('future');
         };
     };
-   });
-
-   /* for loop to retrieve all items in local storage and pull them 
-   into an array */
-
-//    for (var i = 0; i < timeBlockElements.length; i++) {
-//         if (i < 4) {
-//             var x = i + 9; 
-//             hourlyEvent = localStorage.getItem(x);
-//             hourlyEvents.push(hourlyEvent);
-//     } else {
-//         var x = i - 3;
-//         hourlyEvent = localStorage.getItem(x);
-//         hourlyEvents.push(hourlyEvent);
-//     }; 
-//    };
 
    /* for loop to place all the items in local storage back into its respective
    time block when page is launched/refreshed */
@@ -73,5 +57,7 @@ $(function () {
         $("div#hour-"+ y).children('textarea').text(localStorage.getItem(y));
     };
    };
+});
   
+
     
