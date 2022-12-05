@@ -22,10 +22,10 @@ $(function () {
     the text area of the time block into local storage based on id of the time block.  */
 
     for (var i = 0; i < saveButtons.length; i++) {
-        saveButtons[i].addEventListener("click", function () {
+        $(saveButtons[i]).click(function() {
           var idClicked = this.parentNode.id;
           var textArea = $(this.parentNode).children('textarea');
-          eventItem = (textArea.val());
+          eventItem = textArea.val();
           localStorage.setItem(idClicked.slice(5), eventItem);
         });
     };
@@ -37,11 +37,11 @@ $(function () {
 
     for (var i = 0; i < timeBlockElements.length; i++) {
         if ((i + 9) < hour) {
-            timeBlockElements[i].classList.add('past');
+            $(timeBlockElements[i]).addClass('past');
         } else if ((i + 9) === hour) {
-            timeBlockElements[i].classList.add('present');
+            $(timeBlockElements[i]).addClass('present');
         } else {
-            timeBlockElements[i].classList.add('future');
+            $(timeBlockElements[i]).addClass('future');
         };
     };
 
